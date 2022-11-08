@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { setAuthToken } from '../../utilities/authentication';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -15,7 +16,7 @@ const Login = () => {
         signInUser(email, password)
             .then(res => {
                 const user = res.user;
-                console.log(user)
+                setAuthToken(user)
                 form.reset()
                 navigate('/')
             })

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { setAuthToken } from '../../utilities/authentication';
 
 const Register = () => {
     const { signUpUser, updateUser } = useContext(AuthContext)
@@ -16,8 +17,8 @@ const Register = () => {
         signUpUser(email, password)
             .then(res => {
                 const user = res.user;
-                console.log(user)
                 handleUserProfile(name, photoURL)
+                setAuthToken(user)
                 form.reset()
             })
             .catch(error => console.error(error))
@@ -45,7 +46,7 @@ const Register = () => {
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Name</span>
+                            <span className="label-text">Photo URL</span>
                         </label>
                         <input type="text" name='photoURL' placeholder="photo url" className="input input-bordered" required />
                     </div>
