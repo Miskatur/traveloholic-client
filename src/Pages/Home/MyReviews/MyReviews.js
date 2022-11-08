@@ -1,4 +1,3 @@
-import { data } from 'autoprefixer';
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
@@ -9,9 +8,9 @@ const MyReviews = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/comment?email=${user?.email}`)
             .then(res => res.json())
-            .then(data = setReviews(data))
+            .then(data => setReviews(data))
 
-    }, [user?.email], reviews)
+    }, [user?.email])
     console.log(reviews)
 
     return (
