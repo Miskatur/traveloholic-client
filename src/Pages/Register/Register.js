@@ -22,8 +22,6 @@ const Register = () => {
                 form.reset()
             })
             .catch(error => console.error(error))
-
-        console.log(name, photoURL, email, password)
     }
 
     const handleUserProfile = (name, photoURL) => {
