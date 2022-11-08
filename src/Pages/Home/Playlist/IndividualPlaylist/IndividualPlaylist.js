@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const IndividualPlaylist = ({ info }) => {
-    console.log(info)
     const { details, img, location, name, _id } = info
     return (
         <div className="card card-compact w-96 bg-base-100 shadow-xl group hover:bg-teal-500 ">

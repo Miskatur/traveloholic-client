@@ -11,8 +11,9 @@ const Banner = () => {
             </div>
             <div className='flex justify-center items-center'>
                 <div className='text-center'>
-                    <h2 className='text-3xl font-semibold text-sky-600'><span className='text-4xl font-bold text-orange-400'>Hey,</span> <br />
-                        I am Miskatur Rahman</h2>
+                    <h2 className='text-3xl font-semibold'><span className='text-2xl font-bold text-orange-400'>Hey, </span>
+                        I am <br />
+                        <span className='text-5xl  text-sky-600'>Miskatur Rahman</span></h2>
                     <h2 className='text-xl font-semibold lg:my-3'>A Professional Travel Blogger <br /> & Full Stack MERN Developer</h2>
                     <div>
                         <h3>Find Me on</h3>

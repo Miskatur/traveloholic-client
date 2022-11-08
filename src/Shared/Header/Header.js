@@ -1,21 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png'
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
 
     const menuItems = <>
         <li className='font-semibold'><Link to={'/'}>Home</Link></li>
         <li className='font-semibold'><Link to={'/playlists'}>Playlists</Link></li>
         <li className='font-semibold'><Link to={'/blog'}>Blog</Link></li>
-        {/* {
+        {
             user?.uid ?
                 <>
-                    <li className='font-semibold'><Link to={'/orders'}>Orders</Link></li>
+                    <li className='font-semibold'><Link to={'/myplaylist'}>My Playlist</Link></li>
+                    <li className='font-semibold'><Link to={'/addcontent'}>Add Content</Link></li>
                     <li className='font-semibold'><Link onClick={handleLogout}>Log Out</Link></li>
                 </>
                 :
-                <li className='font-semibold'><Link to={'/login'}>Login</Link></li>} */}
+                <>
+                    <li className='font-semibold'><Link to={'/login'}>Login</Link></li>
+                    <li className='font-semibold'><Link to={'/Register'}>Register</Link></li>
+                </>
+        }
     </>
     return (
         <div className="navbar mb-6 bg-teal-200 lg:px-20">
