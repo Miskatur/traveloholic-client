@@ -19,7 +19,7 @@ const Header = () => {
         {
             user?.uid ?
                 <>
-                    <li className='font-semibold'><Link to={'/myplaylist'}>My Playlist</Link></li>
+                    <li className='font-semibold'><Link to={'/myreviews'}>My Reviews</Link></li>
                     <li className='font-semibold'><Link to={'/addcontent'}>Add Content</Link></li>
                     <li className='font-semibold'><Link onClick={handleLogout}>Log Out</Link></li>
                 </>

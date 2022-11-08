@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import Review from './Review/Review';
 
 const PlaylistDetails = () => {
     const contentDetails = useLoaderData()
     const { user } = useContext(AuthContext)
-    console.log(contentDetails)
     const { details, img, location, name, _id, totalCost, period } = contentDetails;
 
     const handleCommentBox = event => {
@@ -75,7 +75,7 @@ const PlaylistDetails = () => {
                                             <label className="label">
                                                 <span className="label-text">Comment</span>
                                             </label>
-                                            <textarea className="textarea h-36" placeholder="write a review..." name='comment' ></textarea>
+                                            <textarea className="textarea h-36" placeholder="write a review..." name='comment' required></textarea>
                                         </div>
 
                                         <input className='btn mt-5' type="submit" value="Submit Review" />
@@ -87,6 +87,18 @@ const PlaylistDetails = () => {
                                 <p className='text-center border-2 border-red-500	 rounded-xl p-10'>Please <Link to={'/login'} className="font-semibold">Login</Link> before commenting a review.</p>
                             </>
                     }
+                </div>
+            </div>
+            <div className='my-12'>
+                <div className='mx-auto border text-black rounded-lg bg-emerald-200 p-12'>
+                    <p className='text-center'>What People Reviewing About this blog? </p>
+                    <div>
+                        {
+                            <Review
+                                _id={_id}
+                            ></Review>
+                        }
+                    </div>
                 </div>
             </div>
         </div>

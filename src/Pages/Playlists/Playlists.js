@@ -15,7 +15,8 @@ const Playlists = () => {
                     data.map(info => <IndividualPlaylist
                         info={info}
                         key={info._id}
-                    ></IndividualPlaylist>)
+                    ></IndividualPlaylist>
+                    )
                 }
 
             </div>

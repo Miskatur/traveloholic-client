@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main/Main";
 import Home from "../Pages/Home/Home";
+import MyReviews from "../Pages/Home/MyReviews/MyReviews";
 import Login from "../Pages/Login/Login";
 import PlaylistDetails from "../Pages/PlaylistDetails/PlaylistDetails";
 import Playlists from "../Pages/Playlists/Playlists";
@@ -32,6 +33,10 @@ export const routes = createBrowserRouter([
                 path: '/playlist-details/:id',
                 element: <PlaylistDetails></PlaylistDetails>,
                 loader: ({ params }) => fetch(`http://localhost:5000/playlists/${params.id}`)
+            },
+            {
+                path: '/myreviews',
+                element: <MyReviews></MyReviews>
             }
         ]
     }
