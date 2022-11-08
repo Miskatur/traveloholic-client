@@ -4,7 +4,6 @@ import IndividualPlaylist from '../Home/Playlist/IndividualPlaylist/IndividualPl
 
 const Playlists = () => {
     const data = useLoaderData()
-    console.log(data)
     return (
         <div className='my-20 lg:px-20'>
             <div className='text-3xl text-center font-semibold my-20'>

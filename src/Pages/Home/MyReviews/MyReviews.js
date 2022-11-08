@@ -34,15 +34,20 @@ const MyReviews = () => {
 
     return (
         <div className='lg:px-20'>
-            <div className='my-20'>
-                {
-                    reviews.map(review => <MyReview
-                        key={review._id}
-                        review={review}
-                        handleDelete={handleDelete}
-                    ></MyReview>)
-                }
-            </div>
+            {
+                reviews?.length > 0 ?
+                    <div className='my-20'>
+                        {
+                            reviews.map(review => <MyReview
+                                key={review._id}
+                                review={review}
+                                handleDelete={handleDelete}
+                            ></MyReview>)
+                        }
+                    </div>
+                    :
+                    <p className='text-center my-20'>You haven't review anything yet. Please Review!</p>
+            }
 
         </div>
     );
