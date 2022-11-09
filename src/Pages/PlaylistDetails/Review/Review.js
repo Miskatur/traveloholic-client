@@ -6,7 +6,7 @@ const Review = ({ _id }) => {
     const [comments, setComments] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/comments?comment_id=${_id}`)
+        fetch(`https://traveloholic-server.vercel.app/comments?comment_id=${_id}`)
             .then(res => res.json())
             .then(data => setComments(data))
     }, [_id, comments])

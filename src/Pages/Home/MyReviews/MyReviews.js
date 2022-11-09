@@ -7,7 +7,7 @@ const MyReviews = () => {
     const { user, loading, logOut } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/comment?email=${user?.email}`, {
+        fetch(`https://traveloholic-server.vercel.app/comment?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -29,7 +29,7 @@ const MyReviews = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are You Sure Want To Delete This Review?');
         if (proceed) {
-            fetch(`http://localhost:5000/comment/${id}`, {
+            fetch(`https://traveloholic-server.vercel.app/comment/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

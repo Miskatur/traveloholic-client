@@ -1,11 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const IndividualPlaylist = ({ info }) => {
     const { details, img, location, name, _id } = info
     return (
         <div className="card card-compact w-96 bg-base-100 shadow-xl group hover:bg-teal-500 ">
-            <figure><img src={img} className="h-56 w-full" alt="pics" /></figure>
+            <PhotoProvider>
+                <PhotoView src={img}>
+                    <figure>
+                        <img src={img} className="h-56 w-full" alt="pics" />
+                    </figure>
+                </PhotoView>
+            </PhotoProvider>
+
             <div className="card-body group-hover:text-white">
                 <h2 className="card-title">{name}</h2>
                 <h2 className='text-sm font-semibold'> Location : {location}</h2>

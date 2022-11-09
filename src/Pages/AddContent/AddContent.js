@@ -19,9 +19,9 @@ const AddContent = () => {
             img,
             period,
             totalCost,
-            details
+            details,
         }
-        fetch(`http://localhost:5000/playlists`, {
+        fetch(`https://traveloholic-server.vercel.app/playlists`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -83,7 +83,7 @@ const AddContent = () => {
                     <div className="form-control mt-6">
                         <input className="btn" type="submit" value="Add to Playlist" />
                     </div>
-                    <p className='mt-5'>See All Your <Link to={'/playlist'} className="font-semibold">Playlist</Link></p>
+                    <p className='mt-5'>See All Your <Link to={'/playlists'} className="font-semibold">Playlist</Link></p>
                 </div>
             </form>
 

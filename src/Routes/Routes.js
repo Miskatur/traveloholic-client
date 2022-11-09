@@ -23,7 +23,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/playlists',
                 element: <Playlists></Playlists>,
-                loader: () => fetch(`http://localhost:5000/playlists`)
+                loader: () => fetch(`https://traveloholic-server.vercel.app/playlists`)
             },
             {
                 path: '/blog',
@@ -40,7 +40,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/playlist-details/:id',
                 element: <PlaylistDetails></PlaylistDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/playlists/${params.id}`)
+                loader: ({ params }) => fetch(`https://traveloholic-server.vercel.app/playlists/${params.id}`)
             },
             {
                 path: '/myreviews',
@@ -52,7 +52,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: `/edit-review/:id`,
-                loader: ({ params }) => fetch(`http://localhost:5000/comments/${params.id}`),
+                loader: ({ params }) => fetch(`https://traveloholic-server.vercel.app/comments/${params.id}`),
                 element: <UpdateReview></UpdateReview>
             }
         ]

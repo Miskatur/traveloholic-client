@@ -11,7 +11,7 @@ const AuthProvider = ({ children }) => {
     const [loader, setLoader] = useState(true)
 
     if (loader) {
-        <h3 className='text-2xl text-center'> Loading....</h3>
+        < h3 className='text-2xl text-center' > Loading....</h3 >
     }
 
     const signUpUser = (email, password) => {

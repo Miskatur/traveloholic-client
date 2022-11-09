@@ -22,7 +22,7 @@ const PlaylistDetails = () => {
             photoUrl: user?.photoURL,
             name: user?.displayName
         }
-        fetch(`http://localhost:5000/comments`, {
+        fetch(`https://traveloholic-server.vercel.app/comments`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

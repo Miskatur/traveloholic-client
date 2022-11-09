@@ -10,7 +10,7 @@ const UpdateReview = () => {
         event.preventDefault()
         const form = event.target;
         const comments = form.comment.value;
-        fetch(`http://localhost:5000/comments/${data._id}`, {
+        fetch(`https://traveloholic-server.vercel.app/comments/${data._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

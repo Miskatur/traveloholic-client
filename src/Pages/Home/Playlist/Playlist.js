@@ -6,7 +6,7 @@ const Playlist = () => {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/playlist`)
+        fetch(`https://traveloholic-server.vercel.app/playlist`)
             .then(res => res.json())
             .then(data => setData(data))
     }, [])
@@ -16,15 +16,19 @@ const Playlist = () => {
             <div>
                 <h1 className='text-center text-4xl font-semibold my-12'>Trending Travel Video Playlists</h1>
             </div>
-            <div className='grid md-grid-cols-2 lg:grid-cols-3 gap-5'>
-                {
-                    data.map(info => <IndividualPlaylist
-                        key={info._id}
-                        info={info}
-                    ></IndividualPlaylist>)
-                }
+            {
+                data?.length === 0 ?
+                    <progress className="progress w-full"></progress> :
+                    <div className='grid md-grid-cols-2 lg:grid-cols-3 gap-5'>
+                        {
+                            data.map(info => <IndividualPlaylist
+                                key={info._id}
+                                info={info}
+                            ></IndividualPlaylist>)
+                        }
 
-            </div>
+                    </div>
+            }
 
             <div className='flex justify-center items-center my-20'>
                 <Link to={'/playlists'}><button className='btn bg-emerald-500	 hover:bg-emerald-700 text-white font-semibold border-none'>See All</button></Link>
