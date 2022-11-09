@@ -47,7 +47,7 @@ const AddContent = () => {
                         <label className="label">
                             <span className="label-text">Title</span>
                         </label>
-                        <input type="text" name='title' placeholder="name" className="input input-bordered" required />
+                        <input type="text" name='title' placeholder="content title" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -65,7 +65,7 @@ const AddContent = () => {
                         <label className="label">
                             <span className="label-text">Period</span>
                         </label>
-                        <input type="text" name='period' placeholder="period" className="input input-bordered" required />
+                        <input type="text" name='period' placeholder="day spend" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
