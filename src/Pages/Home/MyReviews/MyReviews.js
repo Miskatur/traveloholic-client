@@ -3,7 +3,7 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import MyReview from './MyReview/MyReview';
 
 const MyReviews = () => {
-    const { user } = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
 
     useEffect(() => {
@@ -31,6 +31,12 @@ const MyReviews = () => {
                 })
         }
     }
+    if (loading) {
+        return <h3 className='text-2xl text-center'> Loading....</h3>
+    }
+
+
+
 
     return (
         <div className='lg:px-20'>
@@ -42,6 +48,7 @@ const MyReviews = () => {
                                 key={review._id}
                                 review={review}
                                 handleDelete={handleDelete}
+                                user={user}
                             ></MyReview>)
                         }
                     </div>

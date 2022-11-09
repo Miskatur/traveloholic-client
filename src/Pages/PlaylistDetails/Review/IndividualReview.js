@@ -5,7 +5,6 @@ const IndividualReview = ({ com }) => {
     const { comment, email, name, photoUrl, title } = com;
     return (
 
-
         <tr>
 
             <td>

@@ -7,6 +7,7 @@ const PlaylistDetails = () => {
     const contentDetails = useLoaderData()
     const { user } = useContext(AuthContext)
     const { details, img, location, name, _id, totalCost, period } = contentDetails;
+    console.log(_id)
 
     const handleCommentBox = event => {
         event.preventDefault()

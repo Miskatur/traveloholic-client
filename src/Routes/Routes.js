@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main/Main";
+import AddContent from "../Pages/AddContent/AddContent";
 import Home from "../Pages/Home/Home";
+import UpdateReview from "../Pages/Home/MyReviews/MyReview/UpdateReview/UpdateReview";
 import MyReviews from "../Pages/Home/MyReviews/MyReviews";
 import Login from "../Pages/Login/Login";
 import PlaylistDetails from "../Pages/PlaylistDetails/PlaylistDetails";
@@ -37,6 +39,15 @@ export const routes = createBrowserRouter([
             {
                 path: '/myreviews',
                 element: <MyReviews></MyReviews>
+            },
+            {
+                path: '/addcontent',
+                element: <AddContent></AddContent>
+            },
+            {
+                path: `/edit-review/:id`,
+                loader: ({ params }) => fetch(`http://localhost:5000/comments/${params.id}`),
+                element: <UpdateReview></UpdateReview>
             }
         ]
     }

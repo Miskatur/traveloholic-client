@@ -11,7 +11,6 @@ const Review = ({ _id }) => {
             .then(data => setComments(data))
     }, [_id, comments])
 
-
     return (
         <div>
 
@@ -42,8 +41,6 @@ const Review = ({ _id }) => {
 
                     </table>
                 </div>
-
-
 
             </div>
         </div>
