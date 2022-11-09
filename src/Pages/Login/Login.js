@@ -9,7 +9,7 @@ const Login = () => {
     const navigate = useNavigate()
     const googleProvider = new GoogleAuthProvider()
 
-    const { signInUser, signInWithGoogle } = useContext(AuthContext)
+    const { signInUser, signInWithGoogle, setUser } = useContext(AuthContext)
     const handleSubmit = event => {
         event.preventDefault()
 
@@ -23,14 +23,16 @@ const Login = () => {
                 form.reset()
                 navigate('/')
             })
-            .then(error => console.error(error))
+            .then(error => {
+                console.error(error)
+            })
     }
 
     const handleGoogle = () => {
         signInWithGoogle(googleProvider)
             .then(res => {
                 const user = res.user;
-                console.log(user)
+                setUser(user)
             })
             .catch(error => console.error(error))
     }

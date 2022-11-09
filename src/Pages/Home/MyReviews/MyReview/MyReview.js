@@ -5,26 +5,6 @@ import { Link } from 'react-router-dom';
 const MyReview = ({ review, handleDelete, user, handleUpdate
 }) => {
     const { comment, email, name, photoUrl, title, _id } = review;
-    //     const handleUpdate = (event) => {
-    //         event.preventDefault()
-    //         const form = event.target;
-    //         const comments = form.comment.value;
-    //         fetch(`http://localhost:5000/comments/${_id}`, {
-    //             method: 'PATCH',
-    //             headers: {
-    //                 'content-type': 'application/json'
-    //             },
-    //             body: JSON.stringify({ comments })
-    //         })
-    //             .then(res => res.json())
-    //             .then(data => {
-
-    //                 console.log(data)
-    //                 if (data.modifiedCount > 0) {
-    //                     alert('Comment Updated Successfully!')
-    //                 }
-    //             })
-    // }
 
 
 

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Review from './Review/Review';
@@ -7,7 +8,6 @@ const PlaylistDetails = () => {
     const contentDetails = useLoaderData()
     const { user } = useContext(AuthContext)
     const { details, img, location, name, _id, totalCost, period } = contentDetails;
-    console.log(_id)
 
     const handleCommentBox = event => {
         event.preventDefault()
@@ -32,7 +32,7 @@ const PlaylistDetails = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert("You have successfully added a Review!")
+                    toast.success("You have successfully added a Review!")
                     form.reset()
                 }
             })

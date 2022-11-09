@@ -1,4 +1,5 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const UpdateReview = () => {
@@ -19,9 +20,8 @@ const UpdateReview = () => {
             .then(res => res.json())
             .then(data => {
 
-                console.log(data)
                 if (data.modifiedCount > 0) {
-                    alert('Review Updated Succesfully')
+                    toast.success('Review Updated Succesfully')
                     navigate('/myreviews')
                 }
             })

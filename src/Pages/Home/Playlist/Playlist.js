@@ -27,7 +27,7 @@ const Playlist = () => {
             </div>
 
             <div className='flex justify-center items-center my-20'>
-                <Link to={'/playlists'}><button className='btn bg-emerald-500	 hover:bg-emerald-700 text-white font-semibold border-none'>Show More</button></Link>
+                <Link to={'/playlists'}><button className='btn bg-emerald-500	 hover:bg-emerald-700 text-white font-semibold border-none'>See All</button></Link>
             </div>
 
         </div>

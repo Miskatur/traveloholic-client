@@ -1,4 +1,5 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
 const AddContent = () => {
@@ -30,7 +31,7 @@ const AddContent = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert('You have successfully added a content to your playlist')
+                    toast.success('You have successfully added a content to your playlist')
                     form.reset()
                 }
             })
