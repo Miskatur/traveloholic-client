@@ -1,12 +1,15 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
+import { FaGoogle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { setAuthToken } from '../../utilities/authentication';
 
 const Login = () => {
     const navigate = useNavigate()
+    const googleProvider = new GoogleAuthProvider()
 
-    const { signInUser } = useContext(AuthContext)
+    const { signInUser, signInWithGoogle } = useContext(AuthContext)
     const handleSubmit = event => {
         event.preventDefault()
 
@@ -21,6 +24,15 @@ const Login = () => {
                 navigate('/')
             })
             .then(error => console.error(error))
+    }
+
+    const handleGoogle = () => {
+        signInWithGoogle(googleProvider)
+            .then(res => {
+                const user = res.user;
+                console.log(user)
+            })
+            .catch(error => console.error(error))
     }
 
     return (
@@ -46,7 +58,13 @@ const Login = () => {
                         <input className="btn" type="submit" value="Log In" />
                     </div>
                     <p className='mt-5'>New To This Website? <Link to={'/register'} className="font-semibold">Register Now</Link></p>
+
+                    <div className="divider">OR</div>
+
+                    <button className='w-full btn hover:bg-red-700 bg-red-500 font-bold' onClick={handleGoogle}>Sign In With <FaGoogle className='ml-3' />  oogle</button>
+
                 </div>
+
             </form>
 
         </div>

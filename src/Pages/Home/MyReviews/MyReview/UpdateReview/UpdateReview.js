@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const UpdateReview = () => {
     const data = useLoaderData()
-    console.log(data)
 
+    const navigate = useNavigate()
     const handleUpdate = (event) => {
         event.preventDefault()
         const form = event.target;
@@ -22,6 +22,7 @@ const UpdateReview = () => {
                 console.log(data)
                 if (data.modifiedCount > 0) {
                     alert('Review Updated Succesfully')
+                    navigate('/myreviews')
                 }
             })
     }
@@ -29,7 +30,7 @@ const UpdateReview = () => {
     return (
         <div className='my-20'>
             <div className='my-10'>
-                <h1 className='text-3xl font-bold text-center'>Login Now</h1>
+                <h1 className='text-3xl font-bold text-center'>Update Your Review</h1>
             </div>
             <form onSubmit={handleUpdate}>
                 <div className='lg:w-1/2 mx-auto border text-black rounded-lg bg-emerald-200 p-12'>
@@ -37,18 +38,19 @@ const UpdateReview = () => {
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="text" name='email' placeholder={data?.email} className="input input-bordered" />
+                        <input type="text" name='email' placeholder={data?.email} className="input input-bordered" readOnly />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <textarea type="text" name='comment' placeholder="comment" className="input input-bordered" />
+                        <textarea type="text" name='comment' placeholder="comment"
+                            defaultValue={data?.comment} className="textarea h-32" />
                     </div>
                     <div className="form-control mt-6">
-                        <input className="btn" type="submit" value="Log In" />
+                        <input className="btn" type="submit" value="Update Review" />
                     </div>
-                    <p className='mt-5'>New To This Website? <Link to={'/register'} className="font-semibold">Register Now</Link></p>
+
                 </div>
             </form>
 
