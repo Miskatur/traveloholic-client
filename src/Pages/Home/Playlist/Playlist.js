@@ -14,7 +14,7 @@ const Playlist = () => {
     return (
         <div className='mb-20'>
             <div>
-                <h1 className='text-center text-4xl font-semibold my-12'>Travel Videos Playlists</h1>
+                <h1 className='text-center text-4xl font-semibold my-12'>Trending Travel Video Playlists</h1>
             </div>
             <div className='grid md-grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
