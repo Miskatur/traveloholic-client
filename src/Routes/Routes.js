@@ -9,6 +9,7 @@ import Login from "../Pages/Login/Login";
 import PlaylistDetails from "../Pages/PlaylistDetails/PlaylistDetails";
 import Playlists from "../Pages/Playlists/Playlists";
 import Register from "../Pages/Register/Register";
+import PrivateRoutes from "./PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -43,11 +44,11 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/myreviews',
-                element: <MyReviews></MyReviews>
+                element: <PrivateRoutes><MyReviews></MyReviews></PrivateRoutes>
             },
             {
                 path: '/addcontent',
-                element: <AddContent></AddContent>
+                element: <PrivateRoutes><AddContent></AddContent></PrivateRoutes>
             },
             {
                 path: `/edit-review/:id`,

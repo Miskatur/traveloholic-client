@@ -1,15 +1,18 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { setAuthToken } from '../../utilities/authentication';
 
 const Login = () => {
     const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || "/";
+
     const googleProvider = new GoogleAuthProvider()
 
-    const { signInUser, signInWithGoogle, setUser } = useContext(AuthContext)
+    const { signInUser, signInWithGoogle } = useContext(AuthContext)
     const handleSubmit = event => {
         event.preventDefault()
 
@@ -20,8 +23,8 @@ const Login = () => {
             .then(res => {
                 const user = res.user;
                 setAuthToken(user)
+                navigate(from, { replace: true })
                 form.reset()
-                navigate('/')
             })
             .then(error => {
                 console.error(error)
@@ -32,7 +35,9 @@ const Login = () => {
         signInWithGoogle(googleProvider)
             .then(res => {
                 const user = res.user;
-                setUser(user)
+                setAuthToken(user)
+                navigate(from, { replace: true })
+
             })
             .catch(error => console.error(error))
     }

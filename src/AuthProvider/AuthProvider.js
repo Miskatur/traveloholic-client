@@ -10,10 +10,6 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loader, setLoader] = useState(true)
 
-    if (loader) {
-        <h2 className='text-center my-20 text-xl'>Loading...</h2>
-    }
-
     const signUpUser = (email, password) => {
         setLoader(true)
         return createUserWithEmailAndPassword(auth, email, password)
@@ -31,6 +27,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const signInWithGoogle = provider => {
+        setLoader(true)
         return signInWithPopup(auth, provider)
     }
 
