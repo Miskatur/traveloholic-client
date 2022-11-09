@@ -17,29 +17,33 @@ const Review = ({ _id }) => {
             <h1 className='my-5'>Total Comments {comments.length}</h1>
             <div className='grid grid-cols-1'>
                 <div className='w-full'>
-                    <table className="lg:table w-full">
-                        <thead>
-                            <tr>
+                    {
+                        comments.length === 0 ?
+                            <p>No Review Yet!</p> :
+                            <table className="lg:table w-full">
+                                <thead>
+                                    <tr>
 
-                                <th>Reviewer</th>
-                                <th>Post</th>
-                                <th>Comments</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                                        <th>Reviewer</th>
+                                        <th>Post</th>
+                                        <th>Comments</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                            {
-                                comments.map(com => <IndividualReview
-                                    key={com._id}
-                                    com={com}
-                                >
+                                    {
+                                        comments.map(com => <IndividualReview
+                                            key={com._id}
+                                            com={com}
+                                        >
 
-                                </IndividualReview>)
-                            }
-                        </tbody>
+                                        </IndividualReview>)
+                                    }
+                                </tbody>
 
 
-                    </table>
+                            </table>
+                    }
                 </div>
 
             </div>

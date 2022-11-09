@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 import IndividualPlaylist from '../Home/Playlist/IndividualPlaylist/IndividualPlaylist';
 
 const Playlists = () => {
     const data = useLoaderData()
+    const { setLoader } = useContext(AuthContext)
+    if (data.length === 0) {
+        setLoader(true)
+    }
+    else {
+        setLoader(false)
+    }
     return (
         <div className='my-20 lg:px-20'>
             <div className='text-3xl text-center font-semibold my-20'>

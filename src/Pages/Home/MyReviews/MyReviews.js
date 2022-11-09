@@ -4,15 +4,26 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import MyReview from './MyReview/MyReview';
 
 const MyReviews = () => {
-    const { user, loading } = useContext(AuthContext)
+    const { user, loading, logOut } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
-
     useEffect(() => {
-        fetch(`http://localhost:5000/comment?email=${user?.email}`)
-            .then(res => res.json())
+        fetch(`http://localhost:5000/comment?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    localStorage.removeItem('token')
+                    return logOut()
+
+                }
+
+                return res.json()
+            })
             .then(data => setReviews(data))
 
-    }, [user?.email])
+    }, [user?.email, logOut])
 
 
     const handleDelete = (id) => {

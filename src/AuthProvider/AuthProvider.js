@@ -10,6 +10,10 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loader, setLoader] = useState(true)
 
+    if (loader) {
+        <h3 className='text-2xl text-center'> Loading....</h3>
+    }
+
     const signUpUser = (email, password) => {
         setLoader(true)
         return createUserWithEmailAndPassword(auth, email, password)
@@ -33,6 +37,7 @@ const AuthProvider = ({ children }) => {
 
 
     const logOut = () => {
+        setLoader(true)
         return signOut(auth)
     }
 
