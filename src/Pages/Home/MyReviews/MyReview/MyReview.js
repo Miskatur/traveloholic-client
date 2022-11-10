@@ -2,7 +2,7 @@ import React from 'react';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const MyReview = ({ review, handleDelete, user, handleUpdate
+const MyReview = ({ review, handleDelete,
 }) => {
     const { comment, email, name, photoUrl, title, _id } = review;
 

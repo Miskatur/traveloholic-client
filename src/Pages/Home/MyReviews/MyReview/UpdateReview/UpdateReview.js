@@ -1,8 +1,10 @@
 import React from 'react';
 import toast from 'react-hot-toast';
 import { useLoaderData, useNavigate } from 'react-router-dom';
+import useSetTitle from '../../../../../Hooks/useSetTitle';
 
 const UpdateReview = () => {
+    useSetTitle('Update Review')
     const data = useLoaderData()
 
     const navigate = useNavigate()

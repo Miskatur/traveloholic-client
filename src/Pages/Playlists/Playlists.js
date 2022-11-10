@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import useSetTitle from '../../Hooks/useSetTitle';
 import IndividualPlaylist from '../Home/Playlist/IndividualPlaylist/IndividualPlaylist';
 
 const Playlists = () => {
+    useSetTitle('PlayList')
     const data = useLoaderData()
     const { setLoader } = useContext(AuthContext)
     if (data.length === 0) {

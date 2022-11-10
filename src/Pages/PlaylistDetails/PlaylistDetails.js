@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import useSetTitle from '../../Hooks/useSetTitle';
 import Review from './Review/Review';
 
 const PlaylistDetails = () => {
+    useSetTitle('Playlist Details')
     const contentDetails = useLoaderData()
     const { user } = useContext(AuthContext)
     const { details, img, location, name, _id, totalCost, period } = contentDetails;

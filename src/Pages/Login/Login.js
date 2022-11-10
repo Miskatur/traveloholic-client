@@ -3,9 +3,11 @@ import React, { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import useSetTitle from '../../Hooks/useSetTitle';
 import { setAuthToken } from '../../utilities/authentication';
 
 const Login = () => {
+    useSetTitle('Login')
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || "/";

@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
+import useSetTitle from '../../../Hooks/useSetTitle';
 import MyReview from './MyReview/MyReview';
 
 const MyReviews = () => {
-    const { user, loading, logOut } = useContext(AuthContext)
+    useSetTitle('My Reviews')
+    const { user, logOut } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
     useEffect(() => {
         fetch(`https://traveloholic-server.vercel.app/comment?email=${user?.email}`, {
@@ -42,11 +44,6 @@ const MyReviews = () => {
                 })
         }
     }
-    if (loading) {
-        return <h3 className='text-2xl text-center'> Loading....</h3>
-    }
-
-
 
 
     return (

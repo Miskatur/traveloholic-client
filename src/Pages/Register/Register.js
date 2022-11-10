@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import useSetTitle from '../../Hooks/useSetTitle';
 import { setAuthToken } from '../../utilities/authentication';
 
 const Register = () => {
+    useSetTitle('Register')
     const { signUpUser, updateUser } = useContext(AuthContext)
 
     const handleSubmit = event => {
