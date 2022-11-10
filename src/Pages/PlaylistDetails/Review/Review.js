@@ -16,7 +16,7 @@ const Review = ({ _id }) => {
 
             <h1 className='my-5'>Total Comments {comments.length}</h1>
             <div className='grid grid-cols-1'>
-                <div>
+                <div className='overflow-x-auto'>
                     {
                         comments.length === 0 ?
                             <p>No Review Yet!</p> :
