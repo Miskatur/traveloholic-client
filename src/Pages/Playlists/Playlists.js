@@ -13,7 +13,7 @@ const Playlists = () => {
                 Welcome To My Playlists
             </div>
             {
-                data.length === 0 ?
+                data?.length === 0 ?
                     <progress className="progress w-full"></progress> :
                     <div className='grid md-grid-cols-2 lg:grid-cols-3 gap-5'>
                         {
