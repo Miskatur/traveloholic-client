@@ -93,7 +93,7 @@ const PlaylistDetails = () => {
                 </div>
             </div>
             <div className='my-12'>
-                <div className='mx-auto border text-black rounded-lg bg-emerald-200 p-12'>
+                <div className='lg:mx-auto border text-black rounded-lg bg-emerald-200 lg:p-12'>
                     <p className='text-center'>What People Reviewing About this blog? </p>
                     <div>
                         {

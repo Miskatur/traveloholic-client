@@ -16,11 +16,11 @@ const Review = ({ _id }) => {
 
             <h1 className='my-5'>Total Comments {comments.length}</h1>
             <div className='grid grid-cols-1'>
-                <div className='w-full'>
+                <div>
                     {
                         comments.length === 0 ?
                             <p>No Review Yet!</p> :
-                            <table className="lg:table w-full">
+                            <table className="table w-full">
                                 <thead>
                                     <tr>
 
