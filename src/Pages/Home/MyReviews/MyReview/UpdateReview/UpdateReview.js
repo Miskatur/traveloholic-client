@@ -44,7 +44,7 @@ const UpdateReview = () => {
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Password</span>
+                            <span className="label-text">Comment</span>
                         </label>
                         <textarea type="text" name='comment' placeholder="comment"
                             defaultValue={data?.comment} className="textarea h-32" />
